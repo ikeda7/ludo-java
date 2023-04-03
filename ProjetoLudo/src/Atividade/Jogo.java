@@ -16,8 +16,8 @@ public class Jogo {
     private Random random;
     
     public Jogo() {
-        this.peoes = new Peao[4];
-        for (int i = 0; i < 4; i++) {
+        this.peoes = new Peao[8];
+        for (int i = 0; i < 8; i++) {
             this.peoes[i] = new Peao();
         }
         this.random = new Random();
@@ -40,11 +40,12 @@ public class Jogo {
         }
     }
     
-    public void jogar() {
+    public int jogar() {
         int dado = random.nextInt(6) + 1;
         Peao peao = peoes[random.nextInt(8)];
         peao.mover(dado);
         checarColisao(peao);
+        return dado;
     }
 
 }
