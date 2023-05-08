@@ -4,12 +4,18 @@
  */
 package Atividade;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Shape;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author lukin
@@ -32,12 +38,31 @@ public class LudoJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jButtonRolarDado = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelEsquerda = new javax.swing.JPanel();
+        jLabelTextoTela = new javax.swing.JLabel();
+        jPanelBoard = new javax.swing.JPanel(){
+            ImageIcon img = new ImageIcon("img/ludoboard.png");
+            @Override
+            protected void paintComponent(Graphics g){
+                super.paintComponent(g);
+                g.drawImage(img.getImage(), 0, 0, null);
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setColor(Color.BLACK);
+                g2d.fillOval(236, 488, 31, 31);
+                g2d.setColor(Color.YELLOW);
+                g2d.fillOval(238, 490, 27, 27);
+            }
+        };
+        jPanelDireita = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaJogadas = new javax.swing.JTextArea();
+        jButtonDesistir = new javax.swing.JButton();
+        jPanelButtons = new javax.swing.JPanel();
+        jButtonRolarDado = new javax.swing.JButton();
+        jButtonPeao2 = new javax.swing.JButton();
+        jButtonRolarDado2 = new javax.swing.JButton();
+        jButtonPeao3 = new javax.swing.JButton();
+        jButtonPeao4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuConectar = new javax.swing.JMenu();
         jMenuItemHost = new javax.swing.JMenuItem();
@@ -46,43 +71,43 @@ public class LudoJFrame extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ludo");
 
-        jButtonRolarDado.setText("Rolar Dado");
-        jButtonRolarDado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRolarDadoActionPerformed(evt);
-            }
-        });
+        jLabelTextoTela.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabelTextoTela.setText("Conecte-se a outro jogador para jogar");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonRolarDado, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(614, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanelBoardLayout = new javax.swing.GroupLayout(jPanelBoard);
+        jPanelBoard.setLayout(jPanelBoardLayout);
+        jPanelBoardLayout.setHorizontalGroup(
+            jPanelBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 595, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRolarDado)
+        jPanelBoardLayout.setVerticalGroup(
+            jPanelBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 581, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanelEsquerdaLayout = new javax.swing.GroupLayout(jPanelEsquerda);
+        jPanelEsquerda.setLayout(jPanelEsquerdaLayout);
+        jPanelEsquerdaLayout.setHorizontalGroup(
+            jPanelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEsquerdaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTextoTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanelEsquerdaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelEsquerdaLayout.setVerticalGroup(
+            jPanelEsquerdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelEsquerdaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelTextoTela, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTextAreaJogadas.setEditable(false);
@@ -92,21 +117,98 @@ public class LudoJFrame extends javax.swing.JFrame {
         jTextAreaJogadas.setFocusable(false);
         jScrollPane1.setViewportView(jTextAreaJogadas);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        jButtonDesistir.setText("Desistir");
+        jButtonDesistir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDesistirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelDireitaLayout = new javax.swing.GroupLayout(jPanelDireita);
+        jPanelDireita.setLayout(jPanelDireitaLayout);
+        jPanelDireitaLayout.setHorizontalGroup(
+            jPanelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDireitaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonDesistir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelDireitaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanelDireitaLayout.setVerticalGroup(
+            jPanelDireitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDireitaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDesistir)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jButtonRolarDado.setText("Rolar Dado");
+        jButtonRolarDado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRolarDadoActionPerformed(evt);
+            }
+        });
+
+        jButtonPeao2.setText("Mover Peão 2");
+        jButtonPeao2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPeao2ActionPerformed(evt);
+            }
+        });
+
+        jButtonRolarDado2.setText("Mover Peão 1");
+        jButtonRolarDado2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRolarDado2ActionPerformed(evt);
+            }
+        });
+
+        jButtonPeao3.setText("Mover Peão 3");
+        jButtonPeao3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPeao3ActionPerformed(evt);
+            }
+        });
+
+        jButtonPeao4.setText("Mover Peão 4");
+        jButtonPeao4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPeao4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelButtonsLayout = new javax.swing.GroupLayout(jPanelButtons);
+        jPanelButtons.setLayout(jPanelButtonsLayout);
+        jPanelButtonsLayout.setHorizontalGroup(
+            jPanelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelButtonsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonPeao2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonRolarDado, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonRolarDado2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPeao3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPeao4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelButtonsLayout.setVerticalGroup(
+            jPanelButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelButtonsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonRolarDado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonRolarDado2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonPeao2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonPeao3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonPeao4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
 
         jMenuConectar.setText("Jogar");
@@ -154,19 +256,22 @@ public class LudoJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanelEsquerda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelDireita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelEsquerda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDireita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addComponent(jPanelButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -179,31 +284,31 @@ public class LudoJFrame extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "Objetivo do jogo\n" +
-"Percorrer o trajeto do tabuleiro com todas as peças e ser o primeiro jogador a chegar a casa central.\n" +
-"Regras\n" +
-"Para se iniciar a partida, joga-se o dado e o participante que fizer o maior número de pontos inicia o\n" +
-"jogo, continuando as jogadas em sentido horário.\n" +
-"Joga-se com um dado e os avanços são feitos de acordo com os pontos obtidos com o lançamento\n" +
-"dos dados.\n" +
-"Cada jogador lança o dado e se tirar “ 1” ou “6” poderá sair da casa de partida, sendo que, ao tirar\n" +
-"“6” você tem o direito de jogar o dado novamente.\n" +
-"Pode ser jogado por 2, 3 ou 4 jogadores (no caso de 4, é possível formar 2 duplas). O tabuleiro\n" +
-"quadrado tem um percurso em forma de cruz e cada jogador tem quatro peões. Um dado define os\n" +
-"movimentos.\n" +
-"Os peões de cada jogador começam na base de mesma cor. O objetivo do jogo é ser o primeiro a\n" +
-"levar seus 4 peões a dar uma volta no tabuleiro e a chegar no ponto final marcado com sua cor. Os\n" +
-"peões movem-se pelo percurso no sentido horário.\n" +
-"Para transportar um peão de sua base para seu ponto de partida é necessário tirar 6. Quando o\n" +
-"jogador já tem pelo menos um peão no percurso, ele pode mover o peão do número de casas tirado\n" +
-"no dado. Se tirar 6, além de usar esse resultado ele pode jogar novamente o dado.\n" +
-"Se um jogador chegar a uma casa já ocupada por um peão adversário, o peão adversário deve\n" +
-"voltar para sua base. Mas se 2 peões da mesma cor ocuparem uma mesma casa, eles não podem\n" +
-"ser capturados e nenhum adversário pode passar por essa casa, tendo seus peões bloqueados.\n" +
-"Após dar a volta no tabuleiro o peão avança pela reta final, de sua própria cor. A chegada ao ponto\n" +
-"final só pode ser obtida por um número exato nos dados. Se o jogador tirar mais do que o\n" +
-"necessário, ele vai até o fim e volta, tendo que aguardar sua próxima jogada. O vencedor é o\n" +
-"primeiro a levar seus quatro peões ao ponto de chegada da sua cor.\n", "Regras Ludo", -1);
+        JOptionPane.showMessageDialog(rootPane, "Objetivo do jogo\n"
+                + "Percorrer o trajeto do tabuleiro com todas as peças e ser o primeiro jogador a chegar a casa central.\n"
+                + "Regras\n"
+                + "Para se iniciar a partida, joga-se o dado e o participante que fizer o maior número de pontos inicia o\n"
+                + "jogo, continuando as jogadas em sentido horário.\n"
+                + "Joga-se com um dado e os avanços são feitos de acordo com os pontos obtidos com o lançamento\n"
+                + "dos dados.\n"
+                + "Cada jogador lança o dado e se tirar “ 1” ou “6” poderá sair da casa de partida, sendo que, ao tirar\n"
+                + "“6” você tem o direito de jogar o dado novamente.\n"
+                + "Pode ser jogado por 2, 3 ou 4 jogadores (no caso de 4, é possível formar 2 duplas). O tabuleiro\n"
+                + "quadrado tem um percurso em forma de cruz e cada jogador tem quatro peões. Um dado define os\n"
+                + "movimentos.\n"
+                + "Os peões de cada jogador começam na base de mesma cor. O objetivo do jogo é ser o primeiro a\n"
+                + "levar seus 4 peões a dar uma volta no tabuleiro e a chegar no ponto final marcado com sua cor. Os\n"
+                + "peões movem-se pelo percurso no sentido horário.\n"
+                + "Para transportar um peão de sua base para seu ponto de partida é necessário tirar 6. Quando o\n"
+                + "jogador já tem pelo menos um peão no percurso, ele pode mover o peão do número de casas tirado\n"
+                + "no dado. Se tirar 6, além de usar esse resultado ele pode jogar novamente o dado.\n"
+                + "Se um jogador chegar a uma casa já ocupada por um peão adversário, o peão adversário deve\n"
+                + "voltar para sua base. Mas se 2 peões da mesma cor ocuparem uma mesma casa, eles não podem\n"
+                + "ser capturados e nenhum adversário pode passar por essa casa, tendo seus peões bloqueados.\n"
+                + "Após dar a volta no tabuleiro o peão avança pela reta final, de sua própria cor. A chegada ao ponto\n"
+                + "final só pode ser obtida por um número exato nos dados. Se o jogador tirar mais do que o\n"
+                + "necessário, ele vai até o fim e volta, tendo que aguardar sua próxima jogada. O vencedor é o\n"
+                + "primeiro a levar seus quatro peões ao ponto de chegada da sua cor.\n", "Regras Ludo", -1);
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -211,14 +316,14 @@ public class LudoJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         InetAddress localHost;
         try {
-            localHost = InetAddress. getLocalHost();
+            localHost = InetAddress.getLocalHost();
             String ip = localHost.getHostAddress();
             JOptionPane.showMessageDialog(rootPane, "Seu endereço IP: " + ip, "Endereço IP", -1);
         } catch (UnknownHostException ex) {
             Logger.getLogger(LudoJFrame.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(rootPane, "Erro ao obter o endereço IP", "Erro - IP", JOptionPane.ERROR_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_jMenuItemHostActionPerformed
 
     private void jMenuItemConectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemConectarActionPerformed
@@ -236,6 +341,26 @@ public class LudoJFrame extends javax.swing.JFrame {
         Jogo jogo = new Jogo();
         jTextAreaJogadas.setText(jTextAreaJogadas.getText() + "Rolagem do dado: " + jogo.jogar() + "\n");
     }//GEN-LAST:event_jButtonRolarDadoActionPerformed
+
+    private void jButtonDesistirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDesistirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDesistirActionPerformed
+
+    private void jButtonPeao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPeao2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPeao2ActionPerformed
+
+    private void jButtonRolarDado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRolarDado2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRolarDado2ActionPerformed
+
+    private void jButtonPeao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPeao3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPeao3ActionPerformed
+
+    private void jButtonPeao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPeao4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPeao4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,16 +398,23 @@ public class LudoJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonDesistir;
+    private javax.swing.JButton jButtonPeao2;
+    private javax.swing.JButton jButtonPeao3;
+    private javax.swing.JButton jButtonPeao4;
     private javax.swing.JButton jButtonRolarDado;
+    private javax.swing.JButton jButtonRolarDado2;
+    private javax.swing.JLabel jLabelTextoTela;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuConectar;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemConectar;
     private javax.swing.JMenuItem jMenuItemHost;
     private javax.swing.JMenu jMenuItemRegras;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelBoard;
+    private javax.swing.JPanel jPanelButtons;
+    private javax.swing.JPanel jPanelDireita;
+    private javax.swing.JPanel jPanelEsquerda;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaJogadas;
     // End of variables declaration//GEN-END:variables
